@@ -14,6 +14,6 @@ Para rodar os testes unitários:
 $ yarn test
 ```
 
-## Author
+## Autor
 
 * **Higor G Brandão** 
