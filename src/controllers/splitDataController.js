@@ -1,14 +1,14 @@
+const { createDayExpression } = require('./dayController.js')
 
+function handleUserInput(data) {
 
-function separateUserInput(data) {
+    let inputInfos = {
+        clientType: '',
+        days: []
+    }
 
     const separator = /[:|,]+/;
     let splicedData = [];
-    
-    let inputInfos = {
-        clientType: '',
-        dates: []
-    }
 
     splicedData = data.replace(/\s+/g, '').split(separator);
 
@@ -17,7 +17,7 @@ function separateUserInput(data) {
         if (index === 0) {
             inputInfos.clientType = item
         } else {
-            inputInfos.dates.push(item)
+            inputInfos.days.push(createDayExpression(item))
         }
 
     })
@@ -26,4 +26,4 @@ function separateUserInput(data) {
 
 }
 
-module.exports = {separateUserInput}
+module.exports = { handleUserInput }
