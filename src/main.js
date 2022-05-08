@@ -1,21 +1,34 @@
 const { handleUserInput } = require('./controllers/splitDataController.js')
-const { getHotelFee } = require('./controllers/hotelFeeController.js')
+const { getFeeOfTheDay } = require('./controllers/hotelFeeController.js')
 
 function getCheapestHotel(input) {
 
     const splitedInput = handleUserInput(input);
     const clientType = splitedInput.clientType
+    const days = splitedInput.days
 
-    splitedInput.days.map(day => {
+    const hotels = getFeeOfTheDay(clientType, days)
 
-        getHotelFee(clientType, day)
+    const cheapestHotel = hotels.reduce((prev, curr) => {
 
-    })
+        if (prev.price < curr.price) {
+
+            return prev
+
+        } else if(prev.price === curr.price) {
+
+            return prev.rate > curr.rate ? prev : curr
+
+        } else {
+
+            return curr
+
+        }
+
+    });
+
+    return cheapestHotel.name
 
 }
-
-let input = "Regular: 20Mar2009(fri), 21Mar2009(sat), 22Mar2009(sun)"
-
-getCheapestHotel(input)
 
 exports.getCheapestHotel = getCheapestHotel

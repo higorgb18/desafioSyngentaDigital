@@ -1,21 +1,51 @@
-const hotels = require('../data/hotels.js');
+const hotelsData = require('../data/hotels.js');
+const Hotel = require('../models/Hotel.js');
 
-function getHotelFee(clientType, days) {
+function getFeeOfTheDay(clientType, days) {
 
-    hotels.map(item => {
+    let hotelComparasions = [];
 
-        if (clientType === 'Regular') {
+    hotelsData.forEach(hotel => {
 
-            console.log(item.regularFee)
+        let total = 0;
 
-        } else if (clientType === 'Reward') {
+        days.forEach(day => {
 
-            // console.log(item.rewardFee)
+            if (day > 0 && day < 6) {
 
-        }
-        
+                if (clientType === 'Regular') {
+
+                    total += hotel.regularFee.weekday
+
+                } else if (clientType === 'Rewards') {
+
+                    total += hotel.rewardsFee.weekday
+
+                }
+
+            } else if (day === 6 || day === 0) {
+
+                if (clientType === 'Regular') {
+
+                    total += hotel.regularFee.weekend
+
+                } else if (clientType === 'Rewards') {
+
+                    total += hotel.rewardsFee.weekend
+
+                }
+
+            }
+
+        })
+
+        const hotelInfos = new Hotel(hotel.name, hotel.rate, total);
+        hotelComparasions.push(hotelInfos);
+
     })
+
+    return hotelComparasions
 
 }
 
-module.exports = {getHotelFee}
+module.exports = { getFeeOfTheDay }

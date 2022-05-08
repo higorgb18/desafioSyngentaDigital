@@ -15,9 +15,13 @@ function handleUserInput(data) {
     splicedData.forEach((item, index) => {
 
         if (index === 0) {
+
             inputInfos.clientType = item
+
         } else {
+
             inputInfos.days.push(createDayExpression(item))
+            
         }
 
     })

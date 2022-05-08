@@ -1,36 +1,36 @@
 const hotels = [
     {
-        name: "Lakewood",
+        name: 'Lakewood',
         rate: 3,
         regularFee: {
-            weekday: 100,
+            weekday: 110,
             weekend: 90
         },
-        rewardFee: {
+        rewardsFee: {
             weekday: 80,
             weekend: 80
         }
     },
     {
-        name: "Bridgewood",
+        name: 'Bridgewood',
         rate: 4,
         regularFee: {
             weekday: 160,
             weekend: 60
         },
-        rewardFee: {
+        rewardsFee: {
             weekday: 110,
             weekend: 50
         }
     },
     {
-        name: "Ridgewood",
+        name: 'Ridgewood',
         rate: 5,
         regularFee: {
             weekday: 220,
             weekend: 150
         },
-        rewardFee: {
+        rewardsFee: {
             weekday: 100,
             weekend: 40
         }
