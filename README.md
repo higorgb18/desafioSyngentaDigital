@@ -1,16 +1,19 @@
-Nearly empty javascript project with a failing test!
+Problema da Reserva de Hotel
 ===
-**DO NOT change the names of the function (getCheapestHotel) or of the file and folder it is in, changing it implies in disqualification.**
+**O projeto consiste na busca do hotel mais barato disponível em uma rede de hotéis em Miami. Cada hotel possui uma classificação, além de diferentes taxas em dias da semana e em finais de semana. Além disso, também existem taxas específicas para clientes que participam do programa de fidelidade dessa rede de hotéis. A entrada do programa é uma sequência de datas, além da informação se o cliente participa ou não do programa de fidelidade.**
 
-To install the required modules:
+Requisitos:
 
 ```
 $ yarn install
 ```
 
-To run the (failing) test:
+Para rodar os testes unitários:
 
 ```
 $ yarn test
 ```
-**After implementing your solution, it should pass the unit tests available.** 
+
+## Author
+
+* **Higor G Brandão** 
